@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Toolbar Samples</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="lorem">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</string>
+
+
+    <string name="technique_one">Nested ScrollView 1</string>
+    <string name="technique_two">Nested ScrollView 2</string>
+    <string name="technique_three">CollapsingTab Inner Layout</string>
+    <string name="technique_four">Tabs Scroll Flags</string>
+    <string name="technique_five">Collapse Toolbar TabLayout</string>
+    <string name="technique_7">Parallax Image TabLayout</string>
+
+    <!-- Days -->
+    <string-array name="days_names">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+
+</resources>
