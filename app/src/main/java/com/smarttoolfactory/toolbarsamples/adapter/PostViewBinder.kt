@@ -1,23 +1,22 @@
 package com.smarttoolfactory.toolbarsamples.adapter
 
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.databinding.ItemPostBinding
 import com.smarttoolfactory.toolbarsamples.model.PostCardModel
 
 
-class PostCardViewBinder(
-    private val onItemClick: ((ItemPostBinding, PostCardModel) -> Unit)? = null
-) : MappableItemViewBinder<PostCardModel, PostCardViewHolder>(PostCardModel::class.java) {
+class PostCardViewBinder() :
+    MappableItemViewBinder<PostCardModel, PostCardViewHolder>(PostCardModel::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
-        return PostCardViewHolder(
-            parent.inflate(getItemLayoutResource()),
-            onItemClick
-        )
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
+        return PostCardViewHolder(view)
     }
 
     override fun bindViewHolder(model: PostCardModel, viewHolder: PostCardViewHolder) {
@@ -37,29 +36,27 @@ class PostCardViewBinder(
     }
 }
 
-class PostCardViewHolder(
-    private val binding: ItemPostBinding,
-    private val onItemClick: ((ItemPostBinding, PostCardModel) -> Unit)? = null
-) :
-    RecyclerView.ViewHolder(binding.root) {
+class PostCardViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(model: PostCardModel) {
 
         val post = model.post
-        binding.tvTitle.text = post.title
-        binding.tvBody.text = post.body
 
-        setImageUrl(binding.ivPhoto, model.drawableRes)
+        val ivPhoto = view.findViewById<ImageView>(R.id.ivPhoto)
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        val tvBody = view.findViewById<TextView>(R.id.tvBody)
 
-        binding.constraintLayout.setOnClickListener {
-            onItemClick?.invoke(binding, model)
-        }
+        tvTitle.text = post.title
+        tvBody.text = post.body
+
+        setImageUrl(ivPhoto, model.drawableRes)
     }
 
     private fun setImageUrl(view: ImageView, drawableRes: Int) {
 
         try {
-            view.load(drawableRes)
+//            view.load(drawableRes)
+            view.setImageResource(drawableRes)
         } catch (e: Exception) {
             e.printStackTrace()
         }
