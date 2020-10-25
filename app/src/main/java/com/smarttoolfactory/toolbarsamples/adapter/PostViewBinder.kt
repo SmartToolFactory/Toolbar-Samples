@@ -11,13 +11,13 @@ import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.model.PostCardModel
 
 
-class PostCardViewBinder :
+class PostCardViewBinder(private val onItemCLick: ((PostCardModel, Int) -> Unit)? = null) :
     MappableItemViewBinder<PostCardModel, PostCardViewHolder>(PostCardModel::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-        return PostCardViewHolder(view)
+        return PostCardViewHolder(view, onItemCLick)
     }
 
     override fun bindViewHolder(model: PostCardModel, viewHolder: PostCardViewHolder) {
@@ -37,7 +37,10 @@ class PostCardViewBinder :
     }
 }
 
-class PostCardViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+class PostCardViewHolder(
+    val view: View,
+    private val onItemCLick: ((PostCardModel, Int) -> Unit)? = null
+) : RecyclerView.ViewHolder(view) {
 
     fun bind(model: PostCardModel) {
 
@@ -49,6 +52,10 @@ class PostCardViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         tvTitle.text = post.title
 
         ivPhoto.load(model.drawableRes)
+
+        view.setOnClickListener {
+            onItemCLick?.invoke(model, bindingAdapterPosition)
+        }
     }
 
 

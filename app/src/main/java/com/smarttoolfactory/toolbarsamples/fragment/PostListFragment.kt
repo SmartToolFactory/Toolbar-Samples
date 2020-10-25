@@ -16,9 +16,10 @@ import com.smarttoolfactory.toolbarsamples.model.PostCardModel
 import java.util.*
 import kotlin.collections.ArrayList
 
+@Suppress("UNCHECKED_CAST")
 class PostListFragment : Fragment() {
 
-    val data by lazy {
+    private val data by lazy {
         generateMockPosts()
     }
 
@@ -33,7 +34,16 @@ class PostListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val postCardViewBinder = PostCardViewBinder()
+        val postCardViewBinder =
+            PostCardViewBinder { _: PostCardModel, _: Int ->
+
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerView, PostDetailFragment())
+                    .addToBackStack(null)
+                    .commit()
+
+            }
 
         val listAdapter = SingleViewBinderListAdapter(postCardViewBinder as ItemBinder)
 
@@ -51,7 +61,7 @@ class PostListFragment : Fragment() {
         val postList = ArrayList<PostCardModel>()
         val random = Random()
 
-        repeat(30) {
+        repeat(20) {
             val randomNum = random.nextInt(5)
             val title = "Title $randomNum"
             val post = Post(it, it, title)

@@ -58,7 +58,6 @@ class Activity5CollapseTabsToolbar : AppCompatActivity() {
         })
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.main, menu)
