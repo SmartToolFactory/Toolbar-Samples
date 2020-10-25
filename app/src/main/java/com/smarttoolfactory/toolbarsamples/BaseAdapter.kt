@@ -24,12 +24,11 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseAdapter.MyViewHolder>() {
 
     private var listener: OnRecyclerViewItemClickListener? = null
 
-    inner class MyViewHolder// TODO #2
+    inner class MyViewHolder
         (// each data item is just a string in this case
         private val binding: ViewDataBinding
     ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-        // TODO #3
         internal fun bind(obj: Any) {
             binding.setVariable(BR.obj, obj)
             binding.executePendingBindings()
@@ -46,7 +45,6 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseAdapter.MyViewHolder>() {
 
     }
 
-    // TODO #1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // create a new view
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -61,13 +59,9 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseAdapter.MyViewHolder>() {
         return MyViewHolder(binding)
     }
 
-    // TODO #3
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(getDataAtPosition(position))
     }
-
-
-    // TODO #3
 
     /**
      * Get data in position for RecyclerView row. This method is invoked inside
@@ -77,8 +71,6 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseAdapter.MyViewHolder>() {
      * @return data for the current row
      */
     abstract fun getDataAtPosition(position: Int): Any
-
-    // TODO #1
 
     /**
      * Get id of layout from R. This method is invoked from onCreateViewHolder method of Adapter

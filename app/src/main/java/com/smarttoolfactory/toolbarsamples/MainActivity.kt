@@ -98,8 +98,15 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
 
         activityClassModels.add(
             ActivityClassModel(
-                Activity7FragmentToolbar::class.java,
-                Activity7FragmentToolbar::class.java.simpleName
+                Activity7ViewPagerOverAppbar::class.java,
+                Activity7ViewPagerOverAppbar::class.java.simpleName
+            )
+        )
+
+        activityClassModels.add(
+            ActivityClassModel(
+                Activity8FragmentToolbar::class.java,
+                Activity8FragmentToolbar::class.java.simpleName
             )
         )
     }
