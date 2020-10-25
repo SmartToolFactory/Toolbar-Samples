@@ -47,11 +47,6 @@ class Activity7ViewPagerOverAppbar : AppCompatActivity() {
             initTransitionY = tabLayout.translationY
         }
 
-
-        // Check if scrolling up or down
-        var isScrollingUp = false
-        var prevVerticalOffset = 0
-
         appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
 
             //Check if the view is collapsed
@@ -61,23 +56,9 @@ class Activity7ViewPagerOverAppbar : AppCompatActivity() {
                 collapsingToolbar.title = ""
             }
 
-            isScrollingUp = (verticalOffset - prevVerticalOffset) <0
-
-
-            if (isScrollingUp) {
                 tabLayout.translationY =
                     initTransitionY + initTransitionY * (verticalOffset / appBarLayout.totalScrollRange.toFloat())
-            }else {
-                tabLayout.translationY = initTransitionY
-            }
 
-
-            println(
-                "SCROLL verticalOffset: $verticalOffset, " +
-                        "TAB translationY: ${tabLayout.translationY}, " +
-                        "tab Y: ${tabLayout.y}, "+
-                        "isScrollingUp: $isScrollingUp"
-            )
         })
     }
 
