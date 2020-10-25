@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.model.PostCardModel
 
 
-class PostCardViewBinder() :
+class PostCardViewBinder :
     MappableItemViewBinder<PostCardModel, PostCardViewHolder>(PostCardModel::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
@@ -44,22 +45,11 @@ class PostCardViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         val ivPhoto = view.findViewById<ImageView>(R.id.ivPhoto)
         val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-        val tvBody = view.findViewById<TextView>(R.id.tvBody)
 
         tvTitle.text = post.title
-        tvBody.text = post.body
 
-        setImageUrl(ivPhoto, model.drawableRes)
+        ivPhoto.load(model.drawableRes)
     }
 
-    private fun setImageUrl(view: ImageView, drawableRes: Int) {
-
-        try {
-//            view.load(drawableRes)
-            view.setImageResource(drawableRes)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
 }

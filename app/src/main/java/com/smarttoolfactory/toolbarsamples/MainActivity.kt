@@ -95,6 +95,13 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
                 Activity6ParallaxTransparentImageTabs::class.java.simpleName
             )
         )
+
+        activityClassModels.add(
+            ActivityClassModel(
+                Activity7FragmentToolbar::class.java,
+                Activity7FragmentToolbar::class.java.simpleName
+            )
+        )
     }
 
     @Override

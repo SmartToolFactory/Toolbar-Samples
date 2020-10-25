@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostFragmentStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
 
 class Activity4ToolbarAndTabLayoutScroll : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class Activity4ToolbarAndTabLayoutScroll : AppCompatActivity() {
 
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
 
-        viewPager2.adapter = PostFragmentStateAdapter(this)
+        viewPager2.adapter = PostActvitiyStateAdapter(this)
 
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 

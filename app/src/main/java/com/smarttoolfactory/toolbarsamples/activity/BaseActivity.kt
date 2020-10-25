@@ -18,8 +18,7 @@ open class BaseActivity : AppCompatActivity() {
         repeat(30) {
             val randomNum = random.nextInt(5)
             val title = "Title $randomNum"
-            val postBody = getString(R.string.lorem)
-            val post = Post(it, it, title, postBody)
+            val post = Post(it, it, title)
             postList.add(PostCardModel(post, getDrawableRes(randomNum)))
         }
 

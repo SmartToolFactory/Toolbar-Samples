@@ -2,22 +2,16 @@ package com.smarttoolfactory.toolbarsamples.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
-import com.smarttoolfactory.toolbarsamples.fragment.ViewPagerAdapter
 import android.os.Bundle
 import android.view.Menu
 import com.smarttoolfactory.toolbarsamples.R
 import android.view.View
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.smarttoolfactory.toolbarsamples.fragment.OneFragment
-import com.smarttoolfactory.toolbarsamples.fragment.TwoFragment
-import com.smarttoolfactory.toolbarsamples.fragment.ThreeFragment
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.smarttoolfactory.toolbarsamples.adapter.PostFragmentStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
 
 class Activity6ParallaxTransparentImageTabs : AppCompatActivity() {
 
@@ -32,7 +26,7 @@ class Activity6ParallaxTransparentImageTabs : AppCompatActivity() {
 
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
 
-        viewPager2.adapter = PostFragmentStateAdapter(this)
+        viewPager2.adapter = PostActvitiyStateAdapter(this)
 
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 
