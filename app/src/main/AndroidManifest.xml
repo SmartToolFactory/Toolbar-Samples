@@ -16,10 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Activity1NestedScrollView" />
-        <activity android:name=".activity.Activity1NestedScrollView2" />
-        <activity android:name=".activity.Activity2CollapsingTabInnerLayout" />
-        <activity android:name=".activity.Activity4TabsScrollFlag" />
+        <activity android:name=".activity.Activity1CollapsingToolbar1" />
+        <activity android:name=".activity.Activity2CollapsingToolbar2" />
+        <activity
+            android:name=".activity.Activity3CollapsingToolbarScrollFlags"
+            android:theme="@style/ThemeTranslucent" />
+        <activity android:name=".activity.Activity4ToolbarAndTabLayoutScroll" />
         <activity android:name=".activity.Activity5CollapseTabsToolbar" />
         <activity android:name=".activity.Activity6ParallaxTransparentImageTabs" />
     </application>

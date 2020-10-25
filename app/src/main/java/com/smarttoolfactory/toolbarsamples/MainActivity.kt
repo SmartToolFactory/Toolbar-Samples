@@ -56,36 +56,29 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
         // Add Activities to list to be displayed on RecyclerView
         activityClassModels.add(
             ActivityClassModel(
-                Activity1NestedScrollView::class.java,
-                Activity1NestedScrollView::class.java.simpleName
+                Activity1CollapsingToolbar1::class.java,
+                Activity1CollapsingToolbar1::class.java.simpleName
             )
         )
 
         activityClassModels.add(
             ActivityClassModel(
-                Activity1NestedScrollView2::class.java,
-                Activity1NestedScrollView2::class.java.simpleName
+                Activity2CollapsingToolbar2::class.java,
+                Activity2CollapsingToolbar2::class.java.simpleName
             )
         )
 
         activityClassModels.add(
             ActivityClassModel(
-                Activity2CollapsingTabInnerLayout::class.java,
-                Activity2CollapsingTabInnerLayout::class.java.simpleName
+                Activity3CollapsingToolbarScrollFlags::class.java,
+                Activity3CollapsingToolbarScrollFlags::class.java.simpleName
             )
         )
 
         activityClassModels.add(
             ActivityClassModel(
-                Activity3TabsRecreate::class.java,
-                Activity3TabsRecreate::class.java.simpleName
-            )
-        )
-
-        activityClassModels.add(
-            ActivityClassModel(
-                Activity4TabsScrollFlag::class.java,
-                Activity4TabsScrollFlag::class.java.simpleName
+                Activity4ToolbarAndTabLayoutScroll::class.java,
+                Activity4ToolbarAndTabLayoutScroll::class.java.simpleName
             )
         )
 

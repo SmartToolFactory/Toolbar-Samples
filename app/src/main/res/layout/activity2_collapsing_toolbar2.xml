@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light" >
-    
+    android:background="@android:color/background_light"
+    android:fitsSystemWindows="true" >
+
+    <!-- layout_height should be wrap content -->
+    <!-- Toolbar's collapse mode is none which causes menu to scroll either-->
     <!--
     OUTLINE
 	<CoordinatorLayout>
@@ -14,7 +16,8 @@
 	 			<Toolbar/>
     		</CollapsingToolbarLayout>
 		</ AppbarLayout >
-		<Scrollable View.../>
+		<NestedScrollView/>
+		<FloatingActionButton/>
 	</CoordinatorLayout>
     -->
 
@@ -23,17 +26,16 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:fitsSystemWindows="true"
+        app:liftOnScroll="true"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp" >
+            app:contentScrim="@color/purple_500" >
 
             <ImageView
                 android:id="@+id/main.backdrop"
@@ -48,7 +50,9 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
+                app:layout_collapseMode="none"
+                app:menu="@menu/main"
+                app:title="Hello World"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -56,30 +60,15 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@android:color/holo_red_light" >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/btnClrDB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:padding="20dp"
-                android:text="Temizle" />
-
-            <Button
-                android:id="@+id/btnLog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="Kayıt Al" />
-        </LinearLayout>
+            android:lineSpacingExtra="8dp"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/lorem"
+            android:textSize="20sp" />
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
