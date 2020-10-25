@@ -6,13 +6,17 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.adapter.PostFragmentStateAdapter
 import com.smarttoolfactory.toolbarsamples.fragment.*
+import kotlin.math.abs
 
 class Activity5CollapseTabsToolbar : AppCompatActivity() {
 
@@ -22,18 +26,30 @@ class Activity5CollapseTabsToolbar : AppCompatActivity() {
         setContentView(R.layout.activity5_collapse_tabs_toolbar)
 
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        val appbar = findViewById<AppBarLayout>(R.id.appbar)
+        val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
+
+        val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
+        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
-
         viewPager2.adapter = PostFragmentStateAdapter(this)
-
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = "Tab $position"
         }.attach()
+
+        appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+
+            //Check if the view is collapsed
+            if (abs(verticalOffset) >= appbar.totalScrollRange) {
+                collapsingToolbar.title = "Collapsed"
+            } else {
+                collapsingToolbar.title = ""
+            }
+        })
+
     }
 
 

@@ -55,24 +55,28 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="8dp"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/lorem"
+            android:textSize="20sp" />
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
+        android:backgroundTint="#E91E63"
         android:src="@drawable/ic_home_black"
+        android:tint="@color/white"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|right|end" />
 
