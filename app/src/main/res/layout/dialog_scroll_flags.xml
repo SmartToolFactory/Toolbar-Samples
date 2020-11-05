@@ -14,9 +14,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
+        android:id="@+id/radioGroupScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/checkboxSnap">
+
+        <RadioButton
+            android:id="@+id/radioNone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Scoll Flag is Set" />
+
+
+        <RadioButton
+            android:id="@+id/radioExitUntilCollapsed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scroll ExitUntilCollapsed" />
 
         <RadioButton
             android:id="@+id/radioEnterAlways"
@@ -30,11 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Scroll EnterAlwaysCollapsed" />
 
-        <RadioButton
-            android:id="@+id/radioExitUntilCollapsed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Scroll ExitUntilCollapsed" />
+
 
     </RadioGroup>
 

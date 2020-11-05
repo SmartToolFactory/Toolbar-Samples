@@ -10,4 +10,7 @@
 
     <color name="dark_scrim">#33000000</color>
 
+    <color name="status_bar_color">#55eef0f2</color>
+    <color name="nav_bar_color">#99000000</color>
+
 </resources>

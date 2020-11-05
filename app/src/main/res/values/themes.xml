@@ -19,4 +19,12 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
     </style>
+
+    <style name="Theme.App.Fullscreen" parent="Theme.App">
+
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarColor">@color/nav_bar_color</item>
+
+    </style>
 </resources>

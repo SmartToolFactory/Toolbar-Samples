@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.smarttoolfactory.toolbarsamples.databinding.ActivityMainBinding
 import com.smarttoolfactory.toolbarsamples.activity.*
+import com.smarttoolfactory.toolbarsamples.databinding.ActivityMainBinding
 import com.smarttoolfactory.toolbarsamples.model.ActivityClassModel
 import java.util.*
 
@@ -107,6 +107,13 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
             ActivityClassModel(
                 Activity8FragmentToolbar::class.java,
                 Activity8FragmentToolbar::class.java.simpleName
+            )
+        )
+
+        activityClassModels.add(
+            ActivityClassModel(
+                Activity9InsetsAndFullscreen::class.java,
+                Activity9InsetsAndFullscreen::class.java.simpleName
             )
         )
     }

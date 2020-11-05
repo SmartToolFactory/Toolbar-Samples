@@ -11,7 +11,7 @@
 	 		<Toolbar/>
    	 		<TabLayout/>
 		</AppbarLayout>
-		<ViewPager/>
+		<ViewPager2/>
 	</CoordinatorLayout>
     -->
 

@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updatePadding
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -16,9 +19,8 @@ import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
 import kotlin.math.abs
 
-// TODO TabLayout Position is not moving correctly just above ViewPager
+@Suppress("DEPRECATION")
 class Activity7ViewPagerOverAppbar : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,7 @@ class Activity7ViewPagerOverAppbar : AppCompatActivity() {
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
         val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        val constraintLayout = findViewById<ConstraintLayout>(R.id.constraintLayout)
+        val ivHeader = findViewById<ImageView>(R.id.ivHeader)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

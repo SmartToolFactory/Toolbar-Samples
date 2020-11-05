@@ -3,45 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:background="#EEEEEE"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:background="#EEEEEE">
     <!--
     OUTLINE
     <CoordinatorLayout>
         <AppbarLayout>
-               <CollapsingToolbarLayout>
-                    <ImageView/>
-                 <Toolbar/>
-                 <TabLayout/>
-            </CollapsingToolbarLayout>
-        </ AppbarLayout >
-       <ConstraintLayout>
-            < <ViewPager2/>
-       </ConstraintLayout>
+             <Toolbar/>
+             <TabLayout/>
+        <AppbarLayout >
+        <ViewPager2/>
+        <BottomNavigationView/>
     </CoordinatorLayout>
     -->
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f00"
-        android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
+            android:layout_height="256dp"
             android:background="#ff0"
-            android:fitsSystemWindows="true"
-            android:layout_height="410dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
+            app:contentScrim="@android:color/transparent">
 
             <ImageView
                 android:id="@+id/ivHeader"
                 android:layout_width="match_parent"
-                android:fitsSystemWindows="true"
                 android:layout_height="match_parent"
                 android:background="@drawable/header"
                 android:scaleType="centerCrop"
@@ -63,7 +56,6 @@
                 android:background="@android:color/transparent"
                 app:tabIconTint="#F57C00"
                 app:tabIndicatorColor="#F57C00"
-                android:translationY="-60dp"
                 app:tabIndicatorHeight="4dp"
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="#F5F5F5"
@@ -72,22 +64,39 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"-->
+<!--        app:liftOnScroll="true">-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            app:layout_scrollFlags="scroll|enterAlways" />-->
+
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tabLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/constraintLayout"
-        app:behavior_overlapTop="60dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:background="#fff"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:background="#fff"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="match_parent" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menu="@menu/main" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

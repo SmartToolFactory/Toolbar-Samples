@@ -32,6 +32,9 @@
             android:name=".activity.Activity7ViewPagerOverAppbar"
             android:theme="@style/ThemeTranslucent" />
         <activity android:name=".activity.Activity8FragmentToolbar" />
+        <activity
+            android:name=".activity.Activity9InsetsAndFullscreen"
+            android:theme="@style/Theme.App.Fullscreen" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ to create preferred layouts.
 | ----------|-----------| -----------|
 | <img src="./screenshots/ch1.gif"/> | <img src="./screenshots/ch4.gif"/> | <img src="./screenshots/ch5.gif"/> |
 
-| Ch6 Parallax | Ch7 Parallax on Top  | Ch8 Appbar Scroll Change |
+| Ch6 Parallax | Ch7 RV on Top of Parallax   | Ch8 Appbar Scroll Change |
 | ----------|----------------| --------|
 | <img src="./screenshots/ch6.gif"/> | <img src="./screenshots/ch7.gif"/> | <img src="./screenshots/ch8.gif"/> |
 
