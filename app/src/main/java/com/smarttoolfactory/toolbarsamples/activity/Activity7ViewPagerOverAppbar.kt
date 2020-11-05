@@ -1,22 +1,18 @@
 package com.smarttoolfactory.toolbarsamples.activity
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.updatePadding
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
 import kotlin.math.abs
 
 @Suppress("DEPRECATION")
@@ -37,7 +33,7 @@ class Activity7ViewPagerOverAppbar : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        viewPager2.adapter = PostActvitiyStateAdapter(this)
+        viewPager2.adapter = PostActivityStateAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = "Tab $position"

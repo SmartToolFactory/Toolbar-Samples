@@ -1,21 +1,18 @@
 package com.smarttoolfactory.toolbarsamples.activity
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.DialogFragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
 import kotlin.math.abs
 
 
@@ -36,7 +33,7 @@ class Activity5CollapseTabsToolbar : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewPager2.adapter = PostActvitiyStateAdapter(this)
+        viewPager2.adapter = PostActivityStateAdapter(this)
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = "Tab $position"
         }.attach()

@@ -6,14 +6,15 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.smarttoolfactory.toolbarsamples.fragment.PostListFragment
+import com.smarttoolfactory.toolbarsamples.fragment.PostListPlainFragment
 
-class PostActvitiyStateAdapter(fragmentActivity: FragmentActivity) :
+class PostActivityStateAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
-        return PostListFragment()
+        return PostListPlainFragment()
     }
 }
 

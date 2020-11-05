@@ -18,10 +18,8 @@ import com.google.android.material.appbar.AppBarLayout.LayoutParams.SCROLL_FLAG_
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
 import java.util.*
 
 
@@ -42,7 +40,7 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
         title = "Hello World"
 
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
-        viewPager2.adapter = PostActvitiyStateAdapter(this)
+        viewPager2.adapter = PostActivityStateAdapter(this)
 
 
         val fab = findViewById<View>(R.id.fab) as FloatingActionButton

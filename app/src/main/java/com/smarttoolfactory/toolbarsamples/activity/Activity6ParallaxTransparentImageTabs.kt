@@ -11,7 +11,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
+import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
 
 class Activity6ParallaxTransparentImageTabs : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class Activity6ParallaxTransparentImageTabs : AppCompatActivity() {
 
         val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
 
-        viewPager2.adapter = PostActvitiyStateAdapter(this)
+        viewPager2.adapter = PostActivityStateAdapter(this)
 
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
 

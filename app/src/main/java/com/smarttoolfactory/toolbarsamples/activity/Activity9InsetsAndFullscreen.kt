@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
@@ -18,8 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostActvitiyStateAdapter
-import kotlin.math.abs
+import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
 
 @Suppress("DEPRECATION")
 class Activity9InsetsAndFullscreen : AppCompatActivity() {
@@ -40,7 +38,7 @@ class Activity9InsetsAndFullscreen : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewPager2.adapter = PostActvitiyStateAdapter(this)
+        viewPager2.adapter = PostActivityStateAdapter(this)
 
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = "Tab $position"

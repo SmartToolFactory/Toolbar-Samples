@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.model.PostCardModel
 
@@ -51,7 +52,10 @@ class PostCardViewHolder(
 
         tvTitle.text = post.title
 
-        ivPhoto.load(model.drawableRes)
+        ivPhoto.load(model.drawableRes) {
+            crossfade(true)
+            transformations(CircleCropTransformation())
+        }
 
         view.setOnClickListener {
             onItemCLick?.invoke(model, bindingAdapterPosition)
