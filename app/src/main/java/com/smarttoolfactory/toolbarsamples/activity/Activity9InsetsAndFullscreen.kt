@@ -4,20 +4,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.updatePadding
-import androidx.viewpager2.widget.ViewPager2
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.smarttoolfactory.toolbarsamples.R
-import com.smarttoolfactory.toolbarsamples.adapter.PostActivityStateAdapter
+import com.smarttoolfactory.toolbarsamples.fragment.PostListPlainFragment
+import com.smarttoolfactory.toolbarsamples.util.doOnApplyWindowInsets
 
 @Suppress("DEPRECATION")
 class Activity9InsetsAndFullscreen : AppCompatActivity() {
@@ -26,92 +20,40 @@ class Activity9InsetsAndFullscreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity9_insets_fullscreen)
 
-        val rootView = findViewById<CoordinatorLayout>(R.id.coordinatorLayout)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val appbar = findViewById<AppBarLayout>(R.id.appbar)
-        val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        val ivHeader = findViewById<ImageView>(R.id.ivHeader)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentContainerView, PostListPlainFragment())
+            .commit()
 
-        val viewPager2 = findViewById<ViewPager2>(R.id.viewPager2)
+        val rootView = findViewById<ConstraintLayout>(R.id.rootView)
+
+        // Left these views nullable because i add/remove views while trying insetting with different layouts
+        val appbar = findViewById<View>(R.id.appbar) as? AppBarLayout
+        val toolbar = findViewById<View>(R.id.toolbar) as? Toolbar
+
+        // 🔥 This is a mock View to apply top Inset to feel like status bar padding
+        val statusBar = findViewById<View>(R.id.status_bar)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewPager2.adapter = PostActivityStateAdapter(this)
-
-        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-            tab.text = "Tab $position"
-        }.attach()
-
-
-        var initTransitionY = tabLayout.translationY
-        tabLayout.post {
-            initTransitionY = tabLayout.translationY
-        }
-
-
         // Set fullscreen
         hideSystemUI(rootView, true)
 
-        appbar.setOnApplyWindowInsetsListener { view, insets ->
 
-            Toast.makeText(
-                applicationContext,
-                "Appbar padding: ${appbar.paddingTop}, inset top: ${insets.systemWindowInsetTop}",
-                Toast.LENGTH_SHORT
-            ).show()
-//            view.updatePadding(top = view.paddingTop + insets.systemWindowInsetTop)
+        // 🔥🔥 Set mock status bar height based on real height of status bar of device
+        rootView.setOnApplyWindowInsetsListener { view, insets ->
+
+            println("🎃 rootView padding: ${view.paddingTop}, inset top: ${insets.systemWindowInsetTop}")
+
+            statusBar.run {
+                layoutParams.height = insets.systemWindowInsetTop
+                visibility = if (layoutParams.height > 0) View.VISIBLE else View.GONE
+                requestLayout()
+            }
+
             insets
         }
-
-//        collapsingToolbar.setOnApplyWindowInsetsListener { view, insets ->
-//
-//            Toast.makeText(
-//                applicationContext,
-//                "collapsingToolbar padding: ${appbar.paddingTop}, inset top: ${insets.systemWindowInsetTop}",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//            view.updatePadding(top = view.paddingTop + insets.systemWindowInsetTop)
-//            insets
-//        }
-//
-//        toolbar.setOnApplyWindowInsetsListener { view, insets ->
-//
-//            Toast.makeText(
-//                applicationContext,
-//                "toolbar padding: ${appbar.paddingTop}, inset top: ${insets.systemWindowInsetTop}",
-//                Toast.LENGTH_SHORT
-//            ).show()
-////            view.updatePadding(top = insets.systemWindowInsetTop)
-//            insets
-//        }
-
-        ivHeader.setOnApplyWindowInsetsListener { view, insets ->
-
-            Toast.makeText(
-                applicationContext,
-                "ivHeader padding: ${appbar.paddingTop}, inset top: ${insets.systemWindowInsetTop}",
-                Toast.LENGTH_SHORT
-            ).show()
-            view.updatePadding(top = view.paddingTop + insets.systemWindowInsetTop)
-            insets
-        }
-
-        // Add padding to bottom of BottomNavigationView to display it above NavigationBar
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
-        bottomNav.requestApplyInsetsWhenAttached()
-        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
-            view.updatePadding(top = view.paddingTop + insets.systemWindowInsetTop)
-            Toast.makeText(
-                applicationContext,
-                "BottomNav Inset: ${insets.systemWindowInsetBottom}",
-                Toast.LENGTH_SHORT
-            ).show()
-            insets
-        }
-
     }
 
 
@@ -125,11 +67,13 @@ class Activity9InsetsAndFullscreen : AppCompatActivity() {
                     uiOptions
 //                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             // Views can use nav bar space if set
+                            // Hide navigation is not necessary if you don't intend to have scrolling below navbar's position
                             or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            // Fullscreen
                             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 //                            // Removes Status bar
 //                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-//                            // hide nav bar
+//                            // Removes nav bar
 //                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     )
         }

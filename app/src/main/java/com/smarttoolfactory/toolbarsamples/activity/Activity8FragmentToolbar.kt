@@ -15,16 +15,21 @@ class Activity8FragmentToolbar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity8_fragment_toolbar)
 
+        val coordinatorLayout = findViewById<CoordinatorLayout>(R.id.coordinatorLayout)
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragmentContainerView, PostToolbarFragment())
             .commit()
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            val backStackEntryCount = supportFragmentManager.backStackEntryCount
+            hideSystemUI(coordinatorLayout, backStackEntryCount != 0)
+        }
     }
 
+    private fun hideSystemUI(view: View = window.decorView, isFullScreen: Boolean) {
 
-    private fun hideSystemUI(isFullScreen: Boolean) {
-
-        val decorView = window.decorView
         var uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
         if (isFullScreen) {
@@ -33,26 +38,17 @@ class Activity8FragmentToolbar : AppCompatActivity() {
                     uiOptions
 //                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             // Views can use nav bar space if set
-                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            // Hide navigation is not necessary if you don't intend to have scrolling below navbar's position
+                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            // Fullscreen
+                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 //                            // Removes Status bar
 //                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-//                            // hide nav bar
+//                            // Removes nav bar
 //                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-
                     )
         }
 
-        decorView.systemUiVisibility = uiOptions
-
-
-
-        if (isFullScreen) {
-//            setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
-//            window.statusBarColor = Color.TRANSPARENT
-        } else {
-//            setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true)
-//            window.statusBarColor = ResourcesCompat.getColor(resources, R.color.purple_700, null)
-        }
-
+        view.systemUiVisibility = uiOptions
     }
 }

@@ -11,7 +11,7 @@ import com.smarttoolfactory.toolbarsamples.fragment.PostListPlainFragment
 class PostActivityStateAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
 
-    override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return PostListPlainFragment()

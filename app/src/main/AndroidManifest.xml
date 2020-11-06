@@ -34,7 +34,9 @@
         <activity android:name=".activity.Activity8FragmentToolbar" />
         <activity
             android:name=".activity.Activity9InsetsAndFullscreen"
-            android:theme="@style/Theme.App.Fullscreen" />
+            android:theme="@style/Theme.App.FullscreenLight" />
+        <activity android:name=".activity.Activity10InsetsAndFullscreen2"
+            android:theme="@style/Theme.App.Fullscreen"  />
     </application>
 
 </manifest>
