@@ -10,8 +10,9 @@ to create preferred layouts.
 | Ch6 Parallax | Ch7 RV on Top of Parallax   | Ch8 Appbar Scroll Change |
 | ----------|----------------| --------|
 | <img src="./screenshots/ch6.gif"/> | <img src="./screenshots/ch7.gif"/> | <img src="./screenshots/ch8.gif"/> |
+
 | Ch9 Insets and Fullscreen | Ch10 Insets BottomAppbar + Toolbar   |
-| ----------|----------------| --------|
+| ----------|----------------|
 | <img src="./screenshots/ch9.gif"/> | <img src="./screenshots/ch10.gif"/> |
 
 This is small sample bundle to check out results or testing properties in one place.

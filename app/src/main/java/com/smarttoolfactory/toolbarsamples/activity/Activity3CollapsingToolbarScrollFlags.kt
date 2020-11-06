@@ -45,9 +45,15 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
         val fab = findViewById<View>(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { v: View? ->
+
+            val collapsingToolbar =
+                findViewById<CollapsingToolbarLayout>(R.id.collapsingToolbar)
+
+            ScrollSelectionDialogFragment(collapsingToolbar).show(supportFragmentManager, null)
+
             Snackbar.make(
                 v!!,
-                "Hello World",
+                "Change Scroll Flags to see effect",
                 Snackbar.LENGTH_SHORT
             ).show()
         }
@@ -149,7 +155,6 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
             val checkBoxSnap = view.findViewById<CheckBox>(R.id.checkboxSnap)
             checkBoxSnap.isChecked = isFlagSet(scrollFlags, SCROLL_FLAG_SNAP)
-            // 10001
 
             checkBoxSnap.setOnCheckedChangeListener { buttonView, isChecked ->
 
@@ -163,13 +168,11 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
                 println("😀 ${getBit(newFlag, 4)}")
 
-
                 params.scrollFlags = newFlag
                 collapsingToolbarLayout.layoutParams = params
                 collapsingToolbarLayout.requestLayout()
 
             }
-
 
             val radioSelectedIndex = when {
                 isFlagSet(scrollFlags, SCROLL_FLAG_EXIT_UNTIL_COLLAPSED) -> {
@@ -183,7 +186,6 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
                 }
                 else -> 0
             }
-
 
             val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroupScroll)
 
@@ -210,9 +212,6 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
                         // Add new flag
                         newFlag = newFlag or SCROLL_FLAG_EXIT_UNTIL_COLLAPSED
-                        println("🎃 EXIT NEW FLAG: $newFlag")
-
-
                     }
                     R.id.radioEnterAlways -> {
                         // Remove old scroll flags
@@ -222,8 +221,6 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
                         // Add new flag
                         newFlag = newFlag or SCROLL_FLAG_ENTER_ALWAYS
-                        println("🎃 ENTER NEW FLAG: $newFlag")
-
                     }
                     R.id.radioEnterAlwaysCollapsed -> {
                         // Remove old scroll flags
@@ -233,8 +230,6 @@ class Activity3CollapsingToolbarScrollFlags : BaseActivity() {
 
                         // Add new flag
                         newFlag = newFlag or SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED
-                        println("🎃 ENTER_COLLAPSED NEW FLAG: $newFlag")
-
                     }
                 }
 
