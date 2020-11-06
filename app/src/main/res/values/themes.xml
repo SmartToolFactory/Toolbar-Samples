@@ -8,6 +8,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.AppBar" parent="@style/Widget.Design.AppBarLayout">
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.App" />
 
     <style name="MyCustomToolBarTheme" parent="@style/Theme.AppCompat">

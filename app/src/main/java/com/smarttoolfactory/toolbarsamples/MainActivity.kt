@@ -119,8 +119,8 @@ class MainActivity : AppCompatActivity(), BaseAdapter.OnRecyclerViewItemClickLis
 
         activityClassModels.add(
             ActivityClassModel(
-                Activity10InsetsAndFullscreen2::class.java,
-                Activity10InsetsAndFullscreen2::class.java.simpleName
+                Activity10InsetsAndFullScreen2::class.java,
+                Activity10InsetsAndFullScreen2::class.java.simpleName
             )
         )
     }

@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.appbar.AppBarLayout
 import com.smarttoolfactory.toolbarsamples.R
 import com.smarttoolfactory.toolbarsamples.fragment.PostListPlainFragment
-import com.smarttoolfactory.toolbarsamples.util.doOnApplyWindowInsets
 
+/**
+ * Uses mock View and insets to create space above Toolbar
+ */
 @Suppress("DEPRECATION")
 class Activity9InsetsAndFullscreen : AppCompatActivity() {
 
@@ -27,7 +28,7 @@ class Activity9InsetsAndFullscreen : AppCompatActivity() {
 
         val rootView = findViewById<ConstraintLayout>(R.id.rootView)
 
-        // Left these views nullable because i add/remove views while trying insetting with different layouts
+        // Left these views nullable because added/removed views while trying insetting with different layouts
         val appbar = findViewById<View>(R.id.appbar) as? AppBarLayout
         val toolbar = findViewById<View>(R.id.toolbar) as? Toolbar
 

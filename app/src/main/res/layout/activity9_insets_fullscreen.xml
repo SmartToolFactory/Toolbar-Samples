@@ -7,6 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- In this layout NO fitsSystemWindows is used, used mock View to create space-->
+        <!-- above Toolbar as same height as status bar by setting inset for this View in Activity -->
         <!--
         OUTLINE
         <ConstraintLayout>
@@ -17,12 +19,11 @@
         </CoordinatorLayout>
         -->
 
-
         <View
             android:id="@+id/status_bar"
+            style="@style/Theme.AppBar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="#f00"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,14 +31,12 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/Theme.AppBar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="#1976D2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/status_bar"
-            app:menu="@menu/main"
-            app:title="Hello World" />
+            app:layout_constraintTop_toBottomOf="@+id/status_bar" />
 
 
         <androidx.fragment.app.FragmentContainerView

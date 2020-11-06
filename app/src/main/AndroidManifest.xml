@@ -35,8 +35,12 @@
         <activity
             android:name=".activity.Activity9InsetsAndFullscreen"
             android:theme="@style/Theme.App.FullscreenLight" />
-        <activity android:name=".activity.Activity10InsetsAndFullscreen2"
-            android:theme="@style/Theme.App.Fullscreen"  />
+        <activity
+            android:name=".activity.Activity10InsetsAndFullScreen2"
+            android:theme="@style/Theme.App.Fullscreen" />
+        <activity
+            android:name=".activity.Activity11InsetsAndFsWithFitsSystemWindows"
+            android:theme="@style/Theme.App.FullscreenLight" />
     </application>
 
 </manifest>
