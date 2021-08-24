@@ -45,6 +45,23 @@ class PostListPlainFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
         listAdapter.submitList(data)
+
+        view.setOnApplyWindowInsetsListener { view, insets ->
+            recyclerView.run {
+                if (insets.systemWindowInsetBottom != 0) {
+                    setPadding(
+                        paddingLeft,
+                        paddingTop,
+                        paddingRight,
+                        paddingBottom + 50 + insets.systemWindowInsetBottom
+                    )
+                }
+            }
+            insets
+        }
+
+        recyclerView.requestApplyInsets()
+
     }
 
 

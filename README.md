@@ -11,7 +11,7 @@ to create preferred layouts.
 | ----------|----------------| --------|
 | <img src="./screenshots/ch6.gif"/> | <img src="./screenshots/ch7.gif"/> | <img src="./screenshots/ch8.gif"/> |
 
-| Ch9 Insets and Fullscreen | Ch10 Insets BottomAppbar + Toolbar   |
+| Ch9 Insets and Fullscreen | Ch10 Insets Fullscreen BottomAppbar |
 | ----------|----------------|
 | <img src="./screenshots/ch9.gif"/> | <img src="./screenshots/ch10.gif"/> |
 

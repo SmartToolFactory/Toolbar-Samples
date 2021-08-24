@@ -35,6 +35,7 @@ class Activity9InsetsAndFullscreen : AppCompatActivity() {
         // 🔥 This is a mock View to apply top Inset to feel like status bar padding
         val statusBar = findViewById<View>(R.id.status_bar)
 
+
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
